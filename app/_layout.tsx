@@ -1,15 +1,23 @@
-import { StyleSheet } from "react-native";
-import React from "react";
+import { StyleSheet, useColorScheme } from "react-native";
 import { Stack } from "expo-router";
 
+import React from "react";
+
+import { Colors } from "../constants/Colors";
+
 const RootLayout = () => {
+  const colorScheme = useColorScheme() ?? "light";
+  console.log("Current color scheme:", colorScheme);
+
+  const theme = Colors[colorScheme];
+
   return (
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#DDD",
+          backgroundColor: theme.navBackground,
         },
-        headerTintColor: "#333",
+        headerTintColor: theme.title,
       }}
     >
       <Stack.Screen name="index" options={{ title: "Home" }} />

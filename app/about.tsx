@@ -1,15 +1,25 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, useColorScheme, View } from "react-native";
 import { Link } from "expo-router";
 
+import React from "react";
+
+import { Colors } from "../constants/Colors";
+import { StatusBar } from "expo-status-bar";
+
 const About = () => {
+  const colorScheme = useColorScheme() ?? "light";
+  const theme = Colors[colorScheme];
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>About</Text>
-      <Link href="/" style={styles.link}>
-        Go to Home
-      </Link>
-    </View>
+    <>
+      <StatusBar value="auto" />
+      <View style={[styles.container, { backgroundColor: theme.background }]}>
+        <Text style={[styles.title, { color: theme.title }]}>About</Text>
+        <Link href="/" style={styles.link}>
+          Go to Home
+        </Link>
+      </View>
+    </>
   );
 };
 
