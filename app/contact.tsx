@@ -1,15 +1,19 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
+import ShelfieView from "../components/ShelfieView";
+import ShelfieText from "../components/ShelfieText";
 
 const Contact = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Contact</Text>
+    <ShelfieView style={styles.container}>
+      <ShelfieText style={styles.title} title={true}>
+        Contact
+      </ShelfieText>
       <Link href="/" style={styles.link}>
-        Go to Home
+        <ShelfieText>Go to Home</ShelfieText>
       </Link>
-    </View>
+    </ShelfieView>
   );
 };
 

@@ -15,14 +15,20 @@ const Home = () => {
     <ShelfieView style={styles.container}>
       <ShelfieLogo style={styles.logo} />
 
-      <ShelfieText title={true}>The Number 1</ShelfieText>
+      <ShelfieText title={true} style={styles.title}>
+        The Number 1
+      </ShelfieText>
 
       <Spacer height={10} />
       <Text>Reading List App</Text>
       <Spacer />
 
-      <Link href="/about">Go to About</Link>
-      <Link href="/contact">Go to Contact</Link>
+      <Link href="/about" style={styles.link}>
+        <ShelfieText>Go to About</ShelfieText>
+      </Link>
+      <Link href="/contact" style={styles.link}>
+        <ShelfieText>Go to Contact</ShelfieText>
+      </Link>
     </ShelfieView>
   );
 };
@@ -41,5 +47,9 @@ const styles = StyleSheet.create({
   },
   logo: {
     margin: 20,
+  },
+  link: {
+    marginVertical: 10,
+    borderBottomWidth: 1,
   },
 });

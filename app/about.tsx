@@ -1,10 +1,12 @@
-import { StyleSheet, Text, useColorScheme, View } from "react-native";
+import { StyleSheet, useColorScheme } from "react-native";
 import { Link } from "expo-router";
 
 import React from "react";
 
 import { Colors } from "../constants/Colors";
-import { StatusBar } from "expo-status-bar";
+// import { StatusBar } from "expo-status-bar";
+import ShelfieView from "../components/ShelfieView";
+import ShelfieText from "../components/ShelfieText";
 
 const About = () => {
   const colorScheme = useColorScheme() ?? "light";
@@ -12,13 +14,17 @@ const About = () => {
 
   return (
     <>
-      <StatusBar value="auto" />
-      <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <Text style={[styles.title, { color: theme.title }]}>About</Text>
+      {/* <StatusBar value="auto" /> */}
+      <ShelfieView
+        style={[styles.container, { backgroundColor: theme.background }]}
+      >
+        <ShelfieText style={styles.title} title={true}>
+          About
+        </ShelfieText>
         <Link href="/" style={styles.link}>
-          Go to Home
+          <ShelfieText>Go to Home</ShelfieText>
         </Link>
-      </View>
+      </ShelfieView>
     </>
   );
 };
