@@ -4,15 +4,26 @@ import React from "react";
 import Logo from "../assets/img/logo_light.png";
 import { Link } from "expo-router";
 
+// shelfie primivites: themed components
+import ShelfieView from "../components/ShelfieView";
+import ShelfieLogo from "../components/ShelfieLogo";
+import Spacer from "../components/Spacer";
+import ShelfieText from "../components/ShelfieText";
+
 const Home = () => {
   return (
-    <View style={styles.container}>
-      <Image source={Logo} style={styles.logo} />
-      <Text style={styles.title}>The Number 1</Text>
-      <Text style={{ marginTop: 10, marginBottom: 30 }}>Reading List App</Text>
+    <ShelfieView style={styles.container}>
+      <ShelfieLogo style={styles.logo} />
+
+      <ShelfieText title={true}>The Number 1</ShelfieText>
+
+      <Spacer height={10} />
+      <Text>Reading List App</Text>
+      <Spacer />
+
       <Link href="/about">Go to About</Link>
       <Link href="/contact">Go to Contact</Link>
-    </View>
+    </ShelfieView>
   );
 };
 
