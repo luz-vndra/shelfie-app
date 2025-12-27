@@ -14,21 +14,30 @@ const Home = () => {
   return (
     <ShelfieView style={styles.container}>
       <ShelfieLogo style={styles.logo} />
-
       <ShelfieText title={true} style={styles.title}>
         The Number 1
       </ShelfieText>
-
       <Spacer height={10} />
       <Text>Reading List App</Text>
       <Spacer />
 
-      <Link href="/about" style={styles.link}>
+      {/* Login Route */}
+      <Link href="/login" style={styles.link}>
+        <ShelfieText>Login</ShelfieText>
+      </Link>
+
+      {/* Register Route */}
+      <Link href="/register" style={styles.link}>
+        <ShelfieText>Register</ShelfieText>
+      </Link>
+
+      {/* past lectures' */}
+      {/* <Link href="/about" style={styles.link}>
         <ShelfieText>Go to About</ShelfieText>
       </Link>
       <Link href="/contact" style={styles.link}>
         <ShelfieText>Go to Contact</ShelfieText>
-      </Link>
+      </Link> */}
     </ShelfieView>
   );
 };
