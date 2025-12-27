@@ -17,10 +17,15 @@ const ShelfiePressable: React.FC<ShelfiePressableProps> = ({
 }) => {
   return (
     <Pressable
-      // Rudimentary JS Implementation
+      // ======================================================================================
+      // Rudimentary JS Implementation ========================================================
+      // ======================================================================================
       // style={({ pressed }) => [styles.btn, pressed && styles.pressed, style]}
 
+      // ======================================================================================
       // TypeScript Implementation ============================================================
+      // ======================================================================================
+
       // The Problem (Super Simple Explanation)
       // Pressable's style prop is special. It can be:
       // ---> A normal object/array (like { padding: 20 })
@@ -69,7 +74,6 @@ const styles = StyleSheet.create({
     padding: 18,
     borderRadius: 6,
     marginVertical: 10,
-    color: "f2f2f2",
   },
   pressed: {
     opacity: 0.5,
