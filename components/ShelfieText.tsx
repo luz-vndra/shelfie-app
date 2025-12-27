@@ -19,7 +19,7 @@ const ShelfieText: React.FC<ShelfieTextProps> = ({
 
   const textColor = title ? theme.title : theme.text;
 
-  return <Text style={[{ color: textColor }, style]} {...props} />;
+  return <Text style={[{ color: textColor, ...style }]} {...props} />;
 };
 
 export default ShelfieText;
