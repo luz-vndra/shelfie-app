@@ -18,7 +18,7 @@ const Home = () => {
         The Number 1
       </ShelfieText>
       <Spacer height={10} />
-      <Text>Reading List App</Text>
+      <ShelfieText>Reading List App</ShelfieText>
       <Spacer />
 
       {/* Login Route */}
@@ -29,6 +29,11 @@ const Home = () => {
       {/* Register Route */}
       <Link href="/register" style={styles.link}>
         <ShelfieText>Register</ShelfieText>
+      </Link>
+
+      {/* Profile Route */}
+      <Link href="/profile" style={styles.link}>
+        <ShelfieText>Profile</ShelfieText>
       </Link>
 
       {/* past lectures' */}

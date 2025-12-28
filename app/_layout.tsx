@@ -36,6 +36,10 @@ const RootLayout = () => {
           name="contact"
           options={{ title: "Contact", headerShown: false }}
         /> */}
+        <Stack.Screen
+          name="(dashboard)" // removes the string "(auth)" text piece from the header in the login and register pages
+          options={{ title: "(dashboard)", headerShown: false }}
+        />
       </Stack>
     </>
   );
