@@ -21,9 +21,9 @@ const DashboardLayout = () => {
       }}
     >
       <Tabs.Screen
-        name="books"
+        name="profile"
         options={{
-          title: "Books",
+          title: "Profile",
           tabBarIcon: ({ focused }) => (
             <Ionicons
               size={24}
@@ -34,9 +34,9 @@ const DashboardLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="create"
+        name="books"
         options={{
-          title: "Create",
+          title: "Books",
           tabBarIcon: ({ focused }) => (
             <Ionicons
               size={24}
@@ -47,9 +47,9 @@ const DashboardLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="create"
         options={{
-          title: "Profile",
+          title: "Create",
           tabBarIcon: ({ focused }) => (
             <Ionicons
               size={24}
