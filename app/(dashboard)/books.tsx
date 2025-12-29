@@ -7,7 +7,7 @@ import ShelfieView from "../../components/ShelfieView";
 const Books = () => {
   return (
     <ShelfieView style={styles.container}>
-      <Spacer />
+      {/* <Spacer /> */}
       <ShelfieText title={true} style={styles.heading}>
         Your Reading List
       </ShelfieText>
@@ -20,7 +20,7 @@ export default Books;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    // justifyContent: "center",
     alignItems: "stretch",
   },
   heading: {
