@@ -17,7 +17,7 @@ const RootLayout = () => {
       {/* <StatusBar value="auto" /> => Please don't use this 
       -- Outdated tech and breaks the top portion of the app on Mi A3 
       -- Kinda iffy -- this behavior is seen in UPI UI when entering the PIN also */}
-      {/* <StatusBar style="auto" /> */}
+      <StatusBar style="auto" />
       <Stack
         screenOptions={{
           headerStyle: {
