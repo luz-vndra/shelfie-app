@@ -6,8 +6,8 @@ const client = new Client()
   .setPlatform('com.lvi.shelfie');                  // Exact bundle ID you added
 
 export const account = new Account(client);
-export const databases = new Databases(client);
-export const storage = new Storage(client);
+// export const databases = new Databases(client);
+// export const storage = new Storage(client);
 export const avatars = new Avatars(client);
 // Add other services as needed
 export default client;
