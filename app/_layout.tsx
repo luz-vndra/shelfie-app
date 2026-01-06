@@ -1,10 +1,12 @@
-import { StyleSheet, useColorScheme } from "react-native";
-import { Stack } from "expo-router";
-
 import React from "react";
 
-import { Colors } from "../constants/Colors";
+import { StyleSheet, useColorScheme } from "react-native";
+import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+
+import { UserProvider } from "../contexts/UserContext";
+
+import { Colors } from "../constants/Colors";
 
 const RootLayout = () => {
   const colorScheme = useColorScheme() ?? "light";
@@ -13,7 +15,7 @@ const RootLayout = () => {
   const theme = Colors[colorScheme];
 
   return (
-    <>
+    <UserProvider>
       {/* <StatusBar value="auto" /> => Please don't use this 
       -- Outdated tech and breaks the top portion of the app on Mi A3 
       -- Kinda iffy -- this behavior is seen in UPI UI when entering the PIN also */}
@@ -41,7 +43,7 @@ const RootLayout = () => {
           options={{ title: "(dashboard)", headerShown: false }}
         />
       </Stack>
-    </>
+    </UserProvider>
   );
 };
 

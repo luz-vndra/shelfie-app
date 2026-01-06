@@ -10,4 +10,5 @@ export const account = new Account(client);
 // export const storage = new Storage(client);
 export const avatars = new Avatars(client);
 // Add other services as needed
+
 export default client;
