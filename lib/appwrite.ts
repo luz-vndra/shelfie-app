@@ -2,7 +2,7 @@ import { Client, Account, Databases, Storage, Avatars } from 'react-native-appwr
 
 const client = new Client()
   .setEndpoint('https://fra.cloud.appwrite.io/v1')  // From your screenshot: fra.cloud.appwrite.io
-  .setProject('6949f6f00062e0100d3')                // Your project ID from the URL/console
+  .setProject('69491f0600062e0100d3')                // Your project ID from the URL/console
   .setPlatform('com.lvi.shelfie');                  // Exact bundle ID you added
 
 export const account = new Account(client);
