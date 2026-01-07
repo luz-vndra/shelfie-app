@@ -1,5 +1,8 @@
 import React, { createContext, useState } from "react";
 
+import { account } from "../lib/appwrite";
+import { ID } from "react-native-appwrite";
+
 interface UserContextType {
   user: {} | null;
   login: (email: string, password: string) => Promise<void>;
@@ -14,11 +17,37 @@ interface UserProviderProps {
 }
 
 export const UserProvider = ({ children }: UserProviderProps) => {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState({});
 
-  const login = async (email: string, password: string) => {};
+  const register = async (email: string, password: string) => {
+    try {
+      await account.create(ID.unique(), email, password);
 
-  const register = async (email: string, password: string) => {};
+      await login(email, password);
+    } catch (error) {
+      console.log("Registration In UserContext: ", { error });
+      throw Error((error as any).message ?? "Unknown Error");
+    }
+  };
+
+  const login = async (email: string, password: string) => {
+    try {
+      // first create a session with given email and password
+      await account.createEmailPasswordSession(email, password);
+
+      // then get the session info via then SDK
+      const response = await account.get();
+      console.log("Account Session Response: ", { response });
+
+      // then directly set the response as the user
+      setUser(response);
+
+      //
+    } catch (error) {
+      console.log("Login In UserContext: ", { error });
+      throw Error((error as any).message ?? "Unknown Error");
+    }
+  };
 
   const logout = async () => {};
 
