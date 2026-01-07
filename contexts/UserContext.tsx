@@ -1,10 +1,15 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 import { account } from "../lib/appwrite";
 import { ID } from "react-native-appwrite";
 
+interface User {
+  email: string;
+}
+
 interface UserContextType {
-  user: {} | null;
+  user: User | null;
+  authChecked: boolean;
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
@@ -17,7 +22,8 @@ interface UserProviderProps {
 }
 
 export const UserProvider = ({ children }: UserProviderProps) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState<User | null>(null);
+  const [authChecked, setAuthChecked] = useState(false);
 
   const register = async (email: string, password: string) => {
     try {
@@ -49,15 +55,37 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     }
   };
 
-  const logout = async () => {};
+  const logout = async () => {
+    await account.deleteSession("current");
+    setUser(null);
+    console.log("Logged out user.");
+  };
 
   // to make available to provider's component tree
   const payload: UserContextType = {
     user,
+    authChecked,
     login,
     logout,
     register,
   };
+
+  // useEffect function fires
+  const getInitialUserValue = async () => {
+    try {
+      const response = await account.get();
+      setUser(response);
+    } catch (error) {
+      setUser(null);
+    } finally {
+      setAuthChecked(true);
+    }
+  };
+
+  // load user if logged-in
+  useEffect(() => {
+    getInitialUserValue();
+  }, []);
 
   return (
     <UserContext.Provider value={payload}>{children}</UserContext.Provider>
