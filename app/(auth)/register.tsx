@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   Keyboard,
   StyleSheet,
@@ -13,12 +13,29 @@ import ShelfieText from "../../components/ShelfieText";
 import ShelfiePressable from "../../components/ShelfiePressable";
 import ShelfieTextInput from "../../components/ShelfieTextInput";
 
+// import { UserContext } from "../../contexts/UserContext";
+import { useUser } from "../../hooks/useUser";
+
+import { Colors } from "../../constants/Colors";
+
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
+  const [error, setError] = useState(null);
+
+  // const { register } = useContext(UserContext);
+  const { register } = useUser();
+
+  const handleSubmit = async () => {
     console.log("Register submitted!...", { email, password });
+    setError(null);
+    try {
+      await register(email, password);
+    } catch (error) {
+      console.log("registration error:", { error });
+      setError((error as any).message);
+    }
   };
 
   return (
@@ -49,6 +66,9 @@ const Register = () => {
           <Text style={{ color: "#f2f2f2" }}>Register</Text>
         </ShelfiePressable>
 
+        <Spacer />
+        {error && <Text style={styles.error}>{error}</Text>}
+
         <Spacer height={100} />
         <Link href="/login">
           <ShelfieText style={{ textAlign: "center" }}>
@@ -72,5 +92,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+  },
+  error: {
+    color: Colors.warning,
+    padding: 10,
+    backgroundColor: "#f5c1c8",
+    borderColor: Colors.warning,
+    borderWidth: 1,
+    borderRadius: 6,
+    marginHorizontal: 10,
   },
 });
