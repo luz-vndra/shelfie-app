@@ -70,7 +70,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     register,
   };
 
-  // useEffect function fires
+  // useEffect function definitions
   const getInitialUserValue = async () => {
     try {
       const response = await account.get();
@@ -82,7 +82,7 @@ export const UserProvider = ({ children }: UserProviderProps) => {
     }
   };
 
-  // load user if logged-in
+  // load user if logged-in @ the very first load of the app
   useEffect(() => {
     getInitialUserValue();
   }, []);

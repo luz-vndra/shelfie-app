@@ -3,9 +3,9 @@ import { StyleSheet, Text } from "react-native";
 import Spacer from "../../components/Spacer";
 import ShelfieText from "../../components/ShelfieText";
 import ShelfieView from "../../components/ShelfieView";
+import ShelfiePressable from "../../components/ShelfiePressable";
 
 import { useUser } from "../../hooks/useUser";
-import ShelfiePressable from "../../components/ShelfiePressable";
 
 const Profile = () => {
   const { logout, user } = useUser();
