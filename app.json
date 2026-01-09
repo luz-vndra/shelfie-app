@@ -31,6 +31,13 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "1b6af5dd-ba40-46b4-96c3-c96b30ba770b"
+      }
+    },
+    "owner": "luz-vndra"
   }
 }
